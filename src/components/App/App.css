@@ -1,0 +1,7 @@
+.App {
+  font-family: "Inter", sans-serif;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
