@@ -5,48 +5,28 @@ import { Alert } from "../../Alert";
 import { useAuthContext } from "../useAuthContext";
 function Login() {
   let navigate = useNavigate();
-  const { token, setToken } = useAuthContext();
+  const { userLoginWithCredentials, isUserLogin } = useAuthContext();
   const [userDetails, setUserDetails] = useState({ email: "", password: "" });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+
   useEffect(() => {
-    if (token) {
-      navigate("/dashboard");
-    }
+    setTimeout(() => {
+      isUserLogin ? navigate("/dashboard") : navigate("/");
+    }, 200);
   }, []);
 
   async function userLogin(event) {
     event.preventDefault();
-    try {
-      setLoading(true);
-      const { data } = await axios.post(
-        "https://farmers-grocery-v2.herokuapp.com/customers/login",
-        {
-          email: userDetails.email,
-          password: userDetails.password,
-        }
-      );
-      if (data.success && "token" in data) {
-        console.log(token);
-        setToken(() => data.token);
-        localStorage.setItem(
-          "login",
-          JSON.stringify({
-            isUserLoggedIn: true,
-            token: data.token,
-            userDetails: data.user,
-          })
-        );
-        return navigate("/dashboard");
-      } else {
-        setError(data.message);
-      }
-    } catch (error) {
-      const { message } = error.response.data;
-      setError(message);
-      throw error;
-    } finally {
-      return setLoading(false);
+    setLoading(true);
+    const data = await userLoginWithCredentials(
+      userDetails.email,
+      userDetails.password
+    );
+    setLoading(false);
+    console.log(data);
+    if (data === true) {
+      navigate("/dashboard");
     }
   }
 

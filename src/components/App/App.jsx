@@ -1,24 +1,12 @@
 import React, { useEffect } from "react";
 import "./App.css";
 import { Auth } from "../Auth";
-import { Route, Routes } from "react-router";
+import { Route, Routes, useNavigate } from "react-router";
 import { Login, Register } from "../Auth/components/";
 import { Error, PrivateRoute } from "./components";
 import { Dashboard } from "../Dashboard";
-import { useAuthContext } from "../Auth/useAuthContext";
 
 function App() {
-  const { setToken } = useAuthContext();
-  useEffect(() => {
-    const { isUserLoggedIn, token } = JSON.parse(
-      localStorage.getItem("login")
-    ) || {
-      isUserLoggedIn: false,
-    };
-    if (isUserLoggedIn) {
-      setToken(() => token);
-    }
-  }, []);
   return (
     <div className="App">
       <Routes>
