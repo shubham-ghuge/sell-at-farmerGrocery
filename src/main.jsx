@@ -3,16 +3,16 @@ import ReactDOM from "react-dom";
 import App from "./components/App/App";
 import { BrowserRouter as Router } from "react-router-dom";
 import AuthContextProvider from "./contexts/useAuthContext";
-import ProductContextProvider from "./contexts/useProductContext";
+import DataContextProvider from "./contexts/useDataContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <AuthContextProvider>
-      <ProductContextProvider>
+      <DataContextProvider>
         <Router>
           <App />
         </Router>
-      </ProductContextProvider>
+      </DataContextProvider>
     </AuthContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
