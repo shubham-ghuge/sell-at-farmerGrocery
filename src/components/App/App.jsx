@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./App.css";
 import { Auth } from "../Auth";
-import { Route, Routes, useNavigate } from "react-router";
+import { Route, Routes } from "react-router";
 import { Login, Register } from "../Auth/components/";
 import { Error, PrivateRoute } from "./components";
 import { Dashboard } from "../Dashboard";

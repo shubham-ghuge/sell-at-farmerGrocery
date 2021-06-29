@@ -1,32 +1,30 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Alert } from "../../Alert";
-import { useAuthContext } from "../useAuthContext";
+import { useAuthContext } from "../../../contexts/useAuthContext";
+
 function Login() {
   let navigate = useNavigate();
-  const { userLoginWithCredentials, isUserLogin } = useAuthContext();
-  const [userDetails, setUserDetails] = useState({ email: "", password: "" });
+  const { userLoginWithCredentials, userDetails } = useAuthContext();
+  const [inputData, setInputData] = useState({ email: "", password: "" });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
-      isUserLogin ? navigate("/dashboard") : navigate("/");
-    }, 200);
+    userDetails && navigate("/dashboard");
   }, []);
 
   async function userLogin(event) {
     event.preventDefault();
     setLoading(true);
     const data = await userLoginWithCredentials(
-      userDetails.email,
-      userDetails.password
+      inputData.email,
+      inputData.password
     );
     setLoading(false);
     console.log(data);
-    if (data === true) {
-      navigate("/dashboard");
+    if (data.success === true) {
+      return navigate("/dashboard");
     }
   }
 
@@ -37,9 +35,9 @@ function Login() {
       <form className="flex-column mb-4" onSubmit={(e) => userLogin(e)}>
         <input
           // type="email"
-          value={userDetails.email}
+          value={inputData.email}
           onChange={(e) =>
-            setUserDetails((curr) => {
+            setInputData((curr) => {
               return { ...curr, email: e.target.value };
             })
           }
@@ -48,9 +46,9 @@ function Login() {
         />
         <input
           type="password"
-          value={userDetails.password}
+          value={inputData.password}
           onChange={(e) =>
-            setUserDetails((curr) => {
+            setInputData((curr) => {
               return { ...curr, password: e.target.value };
             })
           }
