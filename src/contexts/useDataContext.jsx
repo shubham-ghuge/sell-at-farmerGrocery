@@ -42,7 +42,9 @@ export default function DataContextProvider({ children }) {
   }, []);
   console.log(state);
   return (
-    <DataContext.Provider value={{ products: state.products, dispatch }}>
+    <DataContext.Provider
+      value={{ products: state.products, orders: state.orders, dispatch }}
+    >
       {children}
     </DataContext.Provider>
   );

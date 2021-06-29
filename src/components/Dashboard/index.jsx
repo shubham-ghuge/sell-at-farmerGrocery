@@ -4,13 +4,13 @@ import { useDataContext } from "../../contexts/useDataContext";
 import { useAuthContext } from "../../contexts/useAuthContext";
 
 function Dashboard() {
-  const { userDetails } = useAuthContext();
+  const { userDetails, logout } = useAuthContext();
   const { products } = useDataContext();
   return (
     <>
       <h2>User Info will go here{userDetails}</h2>
       <h2>overview</h2>
-
+      <button onClick={() => logout()}>logout</button>
       <h3>Recently added products</h3>
       {products?.length !== 0 &&
         products.map(
