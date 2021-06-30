@@ -7,7 +7,7 @@ export default function AuthContextProvider({ children }) {
   const [userDetails, setUserDetails] = useState(
     localStorage.getItem("userDetails")
   );
-  
+
   if (token) {
     axios.defaults.headers.common["Authorization"] = token;
   }
@@ -27,13 +27,11 @@ export default function AuthContextProvider({ children }) {
       }
       return data;
     } catch (error) {
-      console.log(error);
       return error;
     }
   }
 
   axios.interceptors.response.use(undefined, function (error) {
-    console.log(error);
     if (error.response.status === 401) {
       logout();
     }

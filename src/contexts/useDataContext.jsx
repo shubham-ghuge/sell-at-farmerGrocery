@@ -1,11 +1,13 @@
 import axios from "axios";
 import React, { createContext, useContext, useEffect, useReducer } from "react";
 import { dataReducer, initialState } from "../reducers/dataReducer";
+import { useAuthContext } from "./useAuthContext";
 
 const DataContext = createContext();
 
 export default function DataContextProvider({ children }) {
   const [state, dispatch] = useReducer(dataReducer, initialState);
+  const { token } = useAuthContext();
   async function getProductsData() {
     try {
       const { data } = await axios.get(
@@ -37,10 +39,9 @@ export default function DataContextProvider({ children }) {
     }
   }
   useEffect(() => {
-    state.products.length === 0 && getProductsData();
-    state.orders.length === 0 && getOrdersData();
+    token && state.products.length === 0 && getProductsData();
+    token && state.orders.length === 0 && getOrdersData();
   }, []);
-  console.log(state);
   return (
     <DataContext.Provider
       value={{ products: state.products, orders: state.orders, dispatch }}
