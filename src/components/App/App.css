@@ -17,10 +17,15 @@ body {
   height: 1.5rem !important;
 }
 .container {
-  padding: var(--p-4);
   box-sizing: border-box;
   width: calc(100vw - var(--nav-width));
   margin-top: 60px;
+  margin-left: var(--nav-width);
+}
+.sub-title {
+  font-size: var(--fsz-1);
+  font-weight: 500;
+  text-transform: capitalize;
 }
 .c-white {
   color: #fff;
@@ -38,7 +43,13 @@ body {
   background-color: transparent;
   border: 0;
 }
-
+.form-margin{
+  margin: 1rem auto 0!important;
+}
+.form label{
+  text-transform: capitalize;
+  margin: var(--p-2) 0;
+}
 .loader {
   display: flex;
 }

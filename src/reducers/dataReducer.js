@@ -1,6 +1,7 @@
 const initialState = {
     products: [],
-    orders: []
+    orders: [],
+    categories: []
 }
 
 const dataReducer = (state, action) => {
@@ -12,6 +13,10 @@ const dataReducer = (state, action) => {
         case "INITIALIZE_ORDERS":
             const orderData = action.payload;
             return { ...state, orders: orderData };
+
+        case "INITIALIZE_CATEGORIES":
+            const categoryData = action.payload;
+            return { ...state, categories: categoryData };
 
         default:
             return state;

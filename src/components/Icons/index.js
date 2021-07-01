@@ -14,3 +14,8 @@ export * from './Shop';
 export * from './Wallet';
 export * from './Settings';
 export * from './Search';
+export * from './Apple';
+export * from './Exit';
+export * from './MenuIcon';
+export * from './Delete';
+export * from './Pen';

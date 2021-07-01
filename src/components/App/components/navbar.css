@@ -7,7 +7,11 @@
   background-color: #fff;
   display: flex;
   align-items: center;
+  z-index: var(--z-3);
   justify-content: space-between;
+}
+.fw-600 {
+  font-weight: 600 !important;
 }
 .header .btn-primary {
   padding: 0;
@@ -24,25 +28,31 @@
   height: 40px;
   width: 40px;
 }
+.reset-width {
+  --nav-width: 0px;
+}
 .nav {
+  z-index: var(--z-3);
+  position: fixed;
   width: var(--nav-width);
   background-color: #027581;
   height: 100vh;
 }
-.nav a span {
+.nav .nav-link span {
   margin-left: var(--p-3);
   text-transform: capitalize;
   font-weight: 500;
   display: none;
 }
-.nav a:is(:hover) {
+.nav .nav-link:is(:hover) {
   text-decoration: none;
+  color: #fff;
 }
 .nav .icon {
   height: 1.5rem;
   width: 1.5rem;
 }
-.nav a {
+.nav .nav-link {
   border-radius: var(--br-2);
   padding: var(--p-3) 0;
   width: 70%;
@@ -50,10 +60,16 @@
   color: #d5f5f6;
 }
 .nav .active {
+  color: #fff;
   background-color: #016673;
 }
 @media all and (min-width: 600px) {
-  .nav a {
+  .nav button {
+    width: 100%;
+    font-family: "Inter";
+    margin-right: var(--p-5);
+  }
+  .nav .nav-link {
     display: flex;
     padding: var(--p-3);
     text-align: left;
@@ -68,7 +84,7 @@
     padding: 0 var(--p-4) 0 var(--p-2);
     border-radius: var(--br-2);
   }
-  .nav a span {
+  .nav .nav-link span {
     display: block;
   }
 }

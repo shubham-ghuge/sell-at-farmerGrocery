@@ -1,0 +1,7 @@
+.wishlist-card img {
+  height: 150px;
+  width: 200px;
+}
+.mb-5 {
+  margin-bottom: var(--p-5) !important;
+}
