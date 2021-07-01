@@ -7,3 +7,10 @@ export * from "./Warning";
 export * from "./Loader";
 export * from "./Close";
 export * from "./Correct";
+export * from './Chart';
+export * from './Plus';
+export * from './Home'
+export * from './Shop';
+export * from './Wallet';
+export * from './Settings';
+export * from './Search';

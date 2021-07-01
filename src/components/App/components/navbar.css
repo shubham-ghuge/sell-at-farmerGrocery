@@ -1,0 +1,74 @@
+.header {
+  position: fixed;
+  top: 0%;
+  right: 0%;
+  height: 60px;
+  width: calc(100vw - var(--nav-width));
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header .btn-primary {
+  padding: 0;
+  border-radius: var(--br-2);
+}
+.header .icon {
+  margin: var(--p-2);
+}
+.logo {
+  margin: var(--p-2) 0 var(--p-2) var(--p-3);
+  height: 50px;
+}
+.header .avatar-lg {
+  height: 40px;
+  width: 40px;
+}
+.nav {
+  width: var(--nav-width);
+  background-color: #027581;
+  height: 100vh;
+}
+.nav a span {
+  margin-left: var(--p-3);
+  text-transform: capitalize;
+  font-weight: 500;
+  display: none;
+}
+.nav a:is(:hover) {
+  text-decoration: none;
+}
+.nav .icon {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+.nav a {
+  border-radius: var(--br-2);
+  padding: var(--p-3) 0;
+  width: 70%;
+  text-align: center;
+  color: #d5f5f6;
+}
+.nav .active {
+  background-color: #016673;
+}
+@media all and (min-width: 600px) {
+  .nav a {
+    display: flex;
+    padding: var(--p-3);
+    text-align: left;
+    align-items: center;
+    width: 80%;
+  }
+  .header .avatar-lg {
+    height: 50px;
+    width: 50px;
+  }
+  .header .btn-primary {
+    padding: 0 var(--p-4) 0 var(--p-2);
+    border-radius: var(--br-2);
+  }
+  .nav a span {
+    display: block;
+  }
+}

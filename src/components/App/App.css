@@ -1,8 +1,26 @@
+:root {
+  --c-primary-200: #016673;
+  --c-secondary-200: #97a6ba;
+}
 body {
   background-color: #f9fafb;
+  --nav-width: 80px;
 }
 .App {
   font-family: "Inter", sans-serif;
+}
+/* utility classes */
+.main {
+  display: flex;
+}
+.icon {
+  height: 1.5rem !important;
+}
+.container {
+  padding: var(--p-4);
+  box-sizing: border-box;
+  width: calc(100vw - var(--nav-width));
+  margin-top: 60px;
 }
 .c-white {
   color: #fff;
@@ -47,5 +65,11 @@ body {
   50% {
     background-color: var(--loader-main);
     transform: scale(1.2);
+  }
+}
+
+@media all and (min-width: 600px) {
+  body {
+    --nav-width: 18vw;
   }
 }
