@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Alert } from "../../Alert";
+import { Footer } from "../../Footer";
 import { Email, Hide, Key, Loader, Show, User } from "../../Icons";
 import { Navbar } from "./Navbar";
 
@@ -157,6 +158,7 @@ function Register() {
           </span>
         </p>
       </div>
+      <Footer />
     </>
   );
 }

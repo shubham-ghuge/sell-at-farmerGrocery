@@ -137,7 +137,8 @@ function AddProduct() {
         <label>product image</label>
         <input
           className="mb-4"
-          type="text"
+          type="url"
+          placeholder="Enter Valid image URL"
           value={product.imgUrl}
           onChange={(e) =>
             setProduct((curr) => ({ ...curr, imgUrl: e.target.value }))

@@ -4,6 +4,7 @@ import { Alert } from "../../Alert";
 import { Navbar } from "./Navbar";
 import { useAuthContext } from "../../../contexts/useAuthContext";
 import { Email, Hide, Key, Loader, Show } from "../../Icons";
+import { Footer } from "../../Footer";
 
 function Login() {
   let navigate = useNavigate();
@@ -46,7 +47,7 @@ function Login() {
           <div className="icon-input mb-4">
             <Email />
             <input
-              // type="email"
+              type="email"
               value={inputData.email}
               onChange={(e) =>
                 setInputData((curr) => {
@@ -97,6 +98,7 @@ function Login() {
           Demo login credentials
         </button>
       </div>
+      <Footer />
     </>
   );
 }

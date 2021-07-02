@@ -10,6 +10,7 @@ import { Orders } from "../Orders";
 import { useDataContext } from "../../contexts/useDataContext";
 import { AddProduct } from "../Products/components";
 import { OrderDetails } from "../Orders/components";
+import { Features } from "../Features";
 
 function App() {
   const { toggleMenu } = useDataContext();
@@ -21,6 +22,7 @@ function App() {
           <Route path="/register" element={<Register />} />
         </Route>
         <Route path="*" element={<Error />} />
+        <PrivateRoute path="/feature" element={<Features />} />
         <PrivateRoute path="/dashboard" element={<Dashboard />} />
         <PrivateRoute path="/products" element={<Product />} />
         <PrivateRoute path="/products/add" element={<AddProduct />} />
