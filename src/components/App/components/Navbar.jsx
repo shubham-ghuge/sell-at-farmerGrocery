@@ -58,7 +58,7 @@ function Navbar() {
           </span>
         </div>
       </header>
-      <nav className={`nav ${toggleMenu && "d-none"}`}>
+      <nav className={`nav ${toggleMenu && "d-none hide"}`}>
         <Link className="nav-link" to="/dashboard">
           <img src={logo} className="logo" alt="logo" />
           <span className="fsz-1 fw-600 c-white">sell @ FG</span>

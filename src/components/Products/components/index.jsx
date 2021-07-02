@@ -1,10 +1,15 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import { useDataContext } from "../../../contexts/useDataContext";
+import { Alert } from "../../Alert";
+import { Loader } from "../../Icons";
 
 function AddProduct() {
-  const { categories } = useDataContext();
-  console.log(categories);
+  const { productId } = useParams();
+  const { categories, products } = useDataContext();
+  const [message, setMessage] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [product, setProduct] = useState({
     name: "",
     description: "",
@@ -13,29 +18,55 @@ function AddProduct() {
     discount: 0,
     imgUrl: "",
   });
-
+  useEffect(() => {
+    if (productId !== undefined) {
+      const [{ name, description, categoryId, price, discount, imgUrl }] =
+        products.filter((i) => i._id === productId);
+      setProduct((curr) => ({
+        ...curr,
+        name,
+        description,
+        categoryId,
+        price,
+        discount,
+        imgUrl,
+      }));
+    }
+  }, []);
   async function addProductsOnServer(event) {
     event.preventDefault();
     try {
-      const response = await axios.post(
-        "https://farmers-grocery-v2.herokuapp.com/products/",
-        {
-          name: product.name,
-          description: product.description,
-          categoryId: product.categoryId,
-          price: product.price,
-          discount: product.discount,
-          imgUrl: product.imgUrl,
-        }
-      );
-      console.log(response);
+      const url = productId
+        ? `https://farmers-grocery-v2.herokuapp.com/products/${productId}`
+        : "https://farmers-grocery-v2.herokuapp.com/products/";
+      setLoading(true);
+      const { data } = await axios.post(url, {
+        name: product.name,
+        description: product.description,
+        categoryId: product.categoryId,
+        price: product.price,
+        discount: product.discount,
+        imgUrl: product.imgUrl,
+      });
+      if (data.success) {
+        setMessage(data.message);
+      }
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   }
 
   return (
     <div className="px-5">
+      {message && (
+        <Alert
+          message={message}
+          onClose={() => setMessage(null)}
+          color="success"
+        />
+      )}
       <form
         className="flex-column w-sm-40 form form-margin"
         onSubmit={(e) => addProductsOnServer(e)}
@@ -104,14 +135,17 @@ function AddProduct() {
         <label>product image</label>
         <input
           className="mb-4"
-          type="file"
+          type="text"
           value={product.imgUrl}
           onChange={(e) =>
             setProduct((curr) => ({ ...curr, imgUrl: e.target.value }))
           }
           required
         />
-        <button className="btn-primary">Add product</button>
+        <button className="btn-primary d-flex ai-center jc-center">
+          {loading ? "Adding" : "Add product"}
+          {loading && <Loader />}
+        </button>
       </form>
     </div>
   );

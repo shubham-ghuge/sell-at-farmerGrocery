@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import userPhoto from "../../assets/photo1.png";
 import { useDataContext } from "../../contexts/useDataContext";
 import { useAuthContext } from "../../contexts/useAuthContext";
-import { Correct, Apple, Shop } from "../Icons";
+import { Correct, Apple, Shop, Loader } from "../Icons";
 import "./dashboard.css";
 import { Card } from "../Cards";
+import { Jumbotron } from "../Jumbotron";
 
 function Dashboard() {
   const { userDetails } = useAuthContext();
-  const { products, totalOrders } = useDataContext();
+  const { loading, products, getProductsData, totalOrders } = useDataContext();
+  useEffect(() => {
+    getProductsData();
+  }, []);
   const currentHour = new Date().getHours();
   return (
     <div className="dashboard">
@@ -64,22 +68,30 @@ function Dashboard() {
             </Link>
           </div>
         </div>
-        <h2 className="sub-title px-4">Recently added products</h2>
-        <div className="flex-layout mt-4 px-4">
-          {products?.length !== 0 &&
-            products.map(
+        <h2 className="sub-title mb-4 px-4">Recently added products</h2>
+        {loading ? (
+          <div className="d-flex ai-center jc-center h-20">
+            <h2 className="sub-title">loading data</h2>
+            <Loader />
+          </div>
+        ) : products.length !== 0 ? (
+          <div className="flex-layout px-4">
+            {products.map(
               (i, idx) => idx <= 3 && <Card product={i} key={i._id} />
             )}
-          {products && products.length > 1 && (
-            <Link
-              to="/products"
-              className="mb-5"
-              style={{ alignSelf: "flex-end" }}
-            >
-              view more
-            </Link>
-          )}
-        </div>
+            {products && products.length > 1 && (
+              <Link
+                to="/products"
+                className="mb-5"
+                style={{ alignSelf: "flex-end" }}
+              >
+                view more
+              </Link>
+            )}
+          </div>
+        ) : (
+          <Jumbotron link="/products/add" />
+        )}
       </section>
     </div>
   );

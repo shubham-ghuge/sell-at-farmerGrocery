@@ -17,6 +17,7 @@ export default function DataContextProvider({ children }) {
   const { token } = useAuthContext();
   async function getProductsData() {
     try {
+      dispatch({ type: "LOADING" });
       const { data } = await axios.get(
         "https://farmers-grocery-v2.herokuapp.com/farmers/products"
       );
@@ -28,6 +29,8 @@ export default function DataContextProvider({ children }) {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      dispatch({ type: "LOADING" });
     }
   }
   async function getOrdersData() {
@@ -57,18 +60,35 @@ export default function DataContextProvider({ children }) {
       console.log(error);
     }
   }
+  async function deleteProduct(productId) {
+    try {
+      const { data } = await axios.delete(
+        `https://farmers-grocery-v2.herokuapp.com/products/${productId}`
+      );
+      if (data.success) {
+        console.log(data.product._id);
+        return dispatch({ type: "DELETE_PRODUCT", payload: data.product._Id });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   useEffect(() => {
-    token && state.products.length === 0 && getProductsData();
+    token && getProductsData();
     token && state.orders.length === 0 && getOrdersData();
     token && state.orders.length === 0 && getCategories();
   }, []);
   return (
     <DataContext.Provider
       value={{
+        loading: state.loading,
         products: state.products,
+        getProductsData,
         orders: state.orders,
         totalOrders: state.orders.length,
         categories: state.categories,
+        deleteProduct,
         dispatch,
         toggleMenu,
         setToggleMenu,

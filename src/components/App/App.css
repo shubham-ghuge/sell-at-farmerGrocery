@@ -13,6 +13,10 @@ body {
 .main {
   display: flex;
 }
+.jumbotron {
+  width: 90%;
+  margin: 1rem auto 0 !important;
+}
 .icon {
   height: 1.5rem !important;
 }
@@ -43,10 +47,10 @@ body {
   background-color: transparent;
   border: 0;
 }
-.form-margin{
-  margin: 1rem auto 0!important;
+.form-margin {
+  margin: 1rem auto 0 !important;
 }
-.form label{
+.form label {
   text-transform: capitalize;
   margin: var(--p-2) 0;
 }
@@ -82,5 +86,8 @@ body {
 @media all and (min-width: 600px) {
   body {
     --nav-width: 18vw;
+  }
+  .jumbotron {
+    width: 60vw;
   }
 }

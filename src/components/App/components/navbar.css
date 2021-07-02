@@ -9,6 +9,7 @@
   align-items: center;
   z-index: var(--z-3);
   justify-content: space-between;
+  transition: width 0.5s;
 }
 .fw-600 {
   font-weight: 600 !important;
@@ -34,9 +35,13 @@
 .nav {
   z-index: var(--z-3);
   position: fixed;
-  width: var(--nav-width);
+  width: calc(var(--nav-width));
   background-color: #027581;
   height: 100vh;
+  transition: all 0.3s;
+}
+.nav .hide {
+  transform: scaleX(0);
 }
 .nav .nav-link span {
   margin-left: var(--p-3);

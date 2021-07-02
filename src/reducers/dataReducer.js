@@ -1,4 +1,5 @@
 const initialState = {
+    loading: false,
     products: [],
     orders: [],
     categories: []
@@ -6,6 +7,8 @@ const initialState = {
 
 const dataReducer = (state, action) => {
     switch (action.type) {
+        case "LOADING":
+            return { ...state, loading: !state.loading };
         case "INITIALIZE_PRODUCTS":
             const productData = action.payload;
             return { ...state, products: productData };
@@ -17,7 +20,9 @@ const dataReducer = (state, action) => {
         case "INITIALIZE_CATEGORIES":
             const categoryData = action.payload;
             return { ...state, categories: categoryData };
-
+        case "DELETE_PRODUCT":
+            const productId = action.payload;
+            return { ...state, products: state.products.filter((i) => i._id !== productId) }
         default:
             return state;
     }

@@ -21,32 +21,33 @@
 .dashboard .overview {
   padding: var(--p-4);
 }
-.overview .text-card{
-    margin-bottom: var(--p-5);
+.overview .text-card {
+  background-color: #fff;
+  margin-bottom: var(--p-5);
 }
 .overview .text-card .icon {
   color: var(--c-secondary-200);
   padding: var(--p-2);
 }
-.overview .text-card .card-header{
-    font-weight: 600;
-    font-size: 1rem;
-    margin: 0 0 .5rem;
-    color: var(--c-secondary-200);
+.overview .text-card .card-header {
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+  color: var(--c-secondary-200);
 }
-.overview .text-card a{
-    padding-top: var(--p-2);
-    border-top: 3px solid var(--c-grey);
+.overview .text-card a {
+  padding-top: var(--p-2);
+  border-top: 3px solid var(--c-grey);
 }
 @media all and (min-width: 600px) {
   .dashboard .user-info h2 {
     font-size: var(--fsz-2);
   }
   .overview {
-      display: flex;
+    display: flex;
   }
-  .overview > *{
-      margin-right: var(--p-7);
+  .overview > * {
+    margin-right: var(--p-7);
   }
   .dashboard .user-info::before {
     top: 65px;
