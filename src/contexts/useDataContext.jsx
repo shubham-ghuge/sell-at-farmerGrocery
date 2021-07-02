@@ -15,6 +15,11 @@ export default function DataContextProvider({ children }) {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [state, dispatch] = useReducer(dataReducer, initialState);
   const { token } = useAuthContext();
+  useEffect(() => {
+    if (window.innerWidth < 600) {
+      setToggleMenu(true);
+    }
+  }, []);
   async function getProductsData() {
     try {
       dispatch({ type: "LOADING" });

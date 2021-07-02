@@ -40,7 +40,7 @@ function Dashboard() {
           </p>
         </div>
       </div>
-      <section className="p-5">
+      <section>
         <h2 className="sub-title px-4">overview</h2>
         <div className="overview">
           <div className="text-card flex-column w-sm-20">
