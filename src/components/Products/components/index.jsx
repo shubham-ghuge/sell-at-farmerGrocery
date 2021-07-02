@@ -71,7 +71,9 @@ function AddProduct() {
         className="flex-column w-sm-40 form form-margin"
         onSubmit={(e) => addProductsOnServer(e)}
       >
-        <h2 className="text-center fsz-3 mb-4">Add Product</h2>
+        <h2 className="text-center fsz-3 mb-4">
+          {productId ? "Edit " : "Add "}Product
+        </h2>
         <label>product name</label>
         <input
           type="text"
@@ -143,7 +145,11 @@ function AddProduct() {
           required
         />
         <button className="btn-primary d-flex ai-center jc-center">
-          {loading ? "Adding" : "Add product"}
+          {loading
+            ? productId
+              ? "updating"
+              : "adding"
+            : `${productId ? "Update" : "Add"} product`}
           {loading && <Loader />}
         </button>
       </form>
