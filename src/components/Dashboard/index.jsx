@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import userPhoto from "../../assets/photo1.png";
 import { useDataContext } from "../../contexts/useDataContext";
@@ -11,8 +11,6 @@ function Dashboard() {
   const { userDetails } = useAuthContext();
   const { products, totalOrders } = useDataContext();
   const currentHour = new Date().getHours();
-  console.log(totalOrders);
-  console.log(products);
   return (
     <div className="dashboard">
       <div className="user-info d-flex ai-center jc-start px-2 pb-5 mb-5 bgc-base-100">
@@ -39,7 +37,7 @@ function Dashboard() {
         </div>
       </div>
       <section className="p-5">
-        <h2 className="sub-title">overview</h2>
+        <h2 className="sub-title px-4">overview</h2>
         <div className="overview">
           <div className="text-card flex-column w-sm-20">
             <div className="d-flex">
@@ -66,14 +64,20 @@ function Dashboard() {
             </Link>
           </div>
         </div>
-        <h2 className="sub-title">Recently added products</h2>
-        <div className="flex-layout pt-4">
+        <h2 className="sub-title px-4">Recently added products</h2>
+        <div className="flex-layout mt-4 px-4">
           {products?.length !== 0 &&
             products.map(
               (i, idx) => idx <= 3 && <Card product={i} key={i._id} />
             )}
           {products && products.length > 1 && (
-            <Link to="/products" className="mb-5" style={{alignSelf:"flex-end"}}>view more</Link>
+            <Link
+              to="/products"
+              className="mb-5"
+              style={{ alignSelf: "flex-end" }}
+            >
+              view more
+            </Link>
           )}
         </div>
       </section>

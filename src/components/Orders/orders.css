@@ -1,0 +1,34 @@
+.orders {
+  overflow: auto;
+  border-radius: var(--br-3);
+  background-color: #fff;
+  border: 2px solid var(--c-grey);
+}
+.order-container {
+  padding: var(--p-5) 0;
+}
+.orders > div {
+  display: flex;
+  justify-content: space-evenly;
+}
+.orders .headings {
+  border-radius: var(--br-3) var(--br-3) 0 0;
+  padding: var(--p-3) 0;
+  background-color: var(--c-secondary-200);
+}
+.orders .sub-title {
+  font-size: 0.9rem;
+}
+.orders div * {
+  overflow: hidden;
+  padding: var(--p-2);
+  width: 20%;
+}
+@media all and (min-width: 600px) {
+  .order-container {
+    padding: var(--p-5);
+  }
+  .orders .sub-title {
+    font-size: var(--fsz-1);
+  }
+}

@@ -19,7 +19,7 @@
   font-size: 0.8rem;
 }
 .dashboard .overview {
-  padding: var(--p-4) 0;
+  padding: var(--p-4);
 }
 .overview .text-card{
     margin-bottom: var(--p-5);
