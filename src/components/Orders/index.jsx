@@ -6,6 +6,7 @@ import "./orders.css";
 
 function Orders() {
   const { orders } = useDataContext();
+  console.log(orders);
   return (
     <div className="order-container">
       {orders.length !== 0 ? (
@@ -18,7 +19,7 @@ function Orders() {
               <h3 className="sub-title">Order Details</h3>
               <h3 className="sub-title">Delivery Status</h3>
             </div>
-            <div className="my-2">
+            <div className="my-2 flex-column">
               {React.Children.toArray(
                 orders &&
                   orders.map((i) => (

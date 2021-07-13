@@ -43,10 +43,10 @@ export default function DataContextProvider({ children }) {
       const { data } = await axios.get(
         "https://farmers-grocery-v2.herokuapp.com/farmers/order"
       );
-      if (data.success && data.response) {
+      if (data.success && data.orders) {
         dispatch({
           type: "INITIALIZE_ORDERS",
-          payload: data.response,
+          payload: data.orders,
         });
       }
     } catch (error) {
@@ -81,7 +81,7 @@ export default function DataContextProvider({ children }) {
 
   useEffect(() => {
     token && getProductsData();
-    token && state.orders.length === 0 && getOrdersData();
+    token && getOrdersData();
     token && state.orders.length === 0 && getCategories();
   }, []);
   return (

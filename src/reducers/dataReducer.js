@@ -15,6 +15,7 @@ const dataReducer = (state, action) => {
 
         case "INITIALIZE_ORDERS":
             const orderData = action.payload;
+            console.log(orderData);
             return { ...state, orders: orderData };
 
         case "INITIALIZE_CATEGORIES":
