@@ -6,13 +6,12 @@ import "./orders.css";
 
 function Orders() {
   const { orders } = useDataContext();
-  console.log(orders);
   return (
-    <div className="orders">
+    <>
+      <h2 className="ml-4 mt-5 fsz-3">Orders Received</h2>
       {orders.length !== 0 ? (
-        <>
-          <h2 className="mb-5">Orders</h2>
-          <div className="order-container">
+        <div className="orders">
+          <div className="order-container shadow bdrs-3">
             <div className="headings c-white">
               <h3 className="sub-title">Order Id</h3>
               <h3 className="sub-title">Payment Status</h3>
@@ -33,14 +32,14 @@ function Orders() {
               )}
             </>
           </div>
-        </>
+        </div>
       ) : (
         <Jumbotron
           heading="Sorry! No orders received :("
           text="You Haven't received any orders yet, add more products and keep checking this space!"
         />
       )}
-    </div>
+    </>
   );
 }
 export { Orders };

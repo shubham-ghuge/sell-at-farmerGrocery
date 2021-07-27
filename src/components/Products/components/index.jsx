@@ -77,15 +77,18 @@ function AddProduct() {
         <label>product name</label>
         <input
           type="text"
+          className="input"
           value={product.name}
           onChange={(e) =>
             setProduct((curr) => ({ ...curr, name: e.target.value }))
           }
-          placeholder="banana"
+          placeholder="enterproduct name"
           required
         />
         <label>product description</label>
-        <input
+        <textarea
+          className="input"
+          style={{height:"100px"}}
           type="text"
           value={product.description}
           onChange={(e) =>
@@ -96,7 +99,7 @@ function AddProduct() {
           }
           placeholder="product description"
           required
-        />
+        ></textarea>
         <label>product category</label>
         <select
           name="category"
@@ -106,7 +109,7 @@ function AddProduct() {
           }
           required
         >
-          <option value="">--Please choose an option--</option>
+          <option value="">--Please choose an category--</option>
           {categories &&
             categories.map((i) => (
               <option value={i._id} key={i._id}>
@@ -116,6 +119,7 @@ function AddProduct() {
         </select>
         <label>product price</label>
         <input
+          className="input"
           type="text"
           value={product.price}
           onChange={(e) =>
@@ -126,6 +130,7 @@ function AddProduct() {
         />
         <label>product discount</label>
         <input
+          className="input"
           type="text"
           value={product.discount}
           onChange={(e) =>
@@ -136,7 +141,7 @@ function AddProduct() {
         />
         <label>product image</label>
         <input
-          className="mb-4"
+          className="input mb-4"
           type="url"
           placeholder="Enter Valid image URL"
           value={product.imgUrl}

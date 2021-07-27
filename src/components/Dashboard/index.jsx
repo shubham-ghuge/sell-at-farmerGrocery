@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import userPhoto from "../../assets/photo1.png";
 import { useDataContext } from "../../contexts/useDataContext";
 import { useAuthContext } from "../../contexts/useAuthContext";
-import { Correct, Apple, Shop, Loader } from "../Icons";
+import { Correct, Apple, Shop, Loader, Avatar, Wallet } from "../Icons";
 import "./dashboard.css";
 import { Card } from "../Cards";
 import { Jumbotron } from "../Jumbotron";
@@ -11,16 +10,16 @@ import { Jumbotron } from "../Jumbotron";
 function Dashboard() {
   const { userDetails } = useAuthContext();
   const { loading, products, getProductsData, totalOrders } = useDataContext();
+
   useEffect(() => {
     getProductsData();
   }, []);
   const currentHour = new Date().getHours();
+
   return (
     <div className="dashboard">
       <div className="user-info d-flex ai-center jc-start px-2 pb-5 mb-5 bgc-base-100">
-        <span className="avatar-lg">
-          <img src={userPhoto} alt="your photo" />
-        </span>
+        <Avatar size="fsz-5" color="primary" />
         <div className="flex-column ml-3">
           <h2>
             {`Good ${
@@ -65,6 +64,21 @@ function Dashboard() {
             </div>
             <Link className="c-primary" to="/orders">
               View All
+            </Link>
+          </div>
+          <div className="text-card flex-column w-sm-20">
+            <div className="d-flex">
+              <Wallet />
+              <div className="card-details">
+                <h3 className="card-header">Wallet Balence</h3>
+                <p className="fw-500">
+                  <span className="fsz-2 mr-2">₹</span>
+                  {totalOrders}.00
+                </p>
+              </div>
+            </div>
+            <Link className="c-primary" to="/profile#wallet">
+              View Wallet
             </Link>
           </div>
         </div>

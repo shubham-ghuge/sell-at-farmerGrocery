@@ -1,6 +1,7 @@
 :root {
   --c-primary-200: #016673;
   --c-secondary-200: #97a6ba;
+  scroll-behavior: smooth;
 }
 body {
   background-color: #f9fafb;
@@ -8,6 +9,9 @@ body {
 }
 .App {
   font-family: "Inter", sans-serif;
+}
+* {
+  font-family: "Inter";
 }
 /* utility classes */
 .main {
@@ -39,6 +43,21 @@ body {
 }
 .icon-input {
   width: 19.8rem;
+}
+.shadow {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.input {
+  font-family: "Inter";
+  border: 2px solid rgb(202, 202, 202);
+  padding: var(--p-2);
+  height: 40px;
+  border-radius: 0.3rem;
+  box-sizing: border-box;
+}
+.input:focus {
+  outline: 0;
+  border-color: #0077ff;
 }
 .icon {
   height: 20px;

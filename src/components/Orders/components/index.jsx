@@ -21,7 +21,7 @@ function OrderDetails() {
     return product;
   }
   return (
-    <div className="orders m-5 p-4">
+    <div className="orders m-5 p-4 shadow bgc-base-100">
       <h2 className="mt-3 mb-5">Order Details</h2>
       {React.Children.toArray(
         data.length === 0 ? (

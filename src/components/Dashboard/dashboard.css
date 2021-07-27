@@ -29,6 +29,9 @@
   color: var(--c-secondary-200);
   padding: var(--p-2);
 }
+.text-card .d-flex{
+  height: 70px;
+}
 .overview .text-card .card-header {
   font-weight: 600;
   font-size: 1rem;

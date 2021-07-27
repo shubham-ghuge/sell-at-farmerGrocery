@@ -79,6 +79,17 @@ function Login() {
             {loading ? "Logging In" : "Log In"}
             {loading && <Loader />}
           </button>
+          <button
+            className="btn-c-primary mt-4"
+            onClick={() => {
+              setInputData((curr) => ({
+                email: "shubhamghuge@gmail.com",
+                password: "user@123",
+              }));
+            }}
+          >
+            Demo login credentials
+          </button>
         </form>
         <p>
           New Here?
@@ -86,17 +97,6 @@ function Login() {
             <Link to="/register"> Create an account.</Link>
           </span>
         </p>
-        <button
-          className="btn-c-primary mt-4"
-          onClick={() => {
-            setInputData((curr) => ({
-              email: "shubhamghuge@gmail.com",
-              password: "user@123",
-            }));
-          }}
-        >
-          Demo login credentials
-        </button>
       </div>
       <Footer />
     </>

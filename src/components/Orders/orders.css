@@ -1,12 +1,11 @@
 .orders {
   overflow: auto;
   border-radius: var(--br-3);
-  background-color: #fff;
-  border: 2px solid var(--c-grey);
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: var(--p-2);
 }
 .order-container {
-  padding: var(--p-5) 0;
+  background-color: #fff;
+  border: 2px solid var(--c-grey);
 }
 .order-container > div {
   display: grid;
@@ -27,11 +26,11 @@
 }
 .order-products {
   margin: 1rem 0 !important;
-  display: flex!important;
+  display: flex !important;
 }
 @media all and (min-width: 600px) {
-  .order-container {
-    padding: var(--p-5);
+  .orders {
+    padding: var(--p-6);
   }
   .orders .sub-title {
     font-size: var(--fsz-1);

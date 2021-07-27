@@ -1,19 +1,17 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import userImage from "../../../assets/photo1.png";
 import logo from "../../../assets/logo.svg";
 import { useAuthContext } from "../../../contexts/useAuthContext";
 import {
   Apple,
+  Avatar,
   Chart,
   Exit,
   Home,
   MenuIcon,
   Plus,
-  Search,
   Settings,
   Shop,
-  Wallet,
 } from "../../Icons";
 import "./navbar.css";
 import { useDataContext } from "../../../contexts/useDataContext";
@@ -39,10 +37,6 @@ function Navbar() {
           >
             <MenuIcon />
           </button>
-          <button className="btn-reset d-flex ai-center c-secondary">
-            <Search />
-            <span>Search</span>
-          </button>
         </div>
         <div className="d-flex ai-center">
           <Link
@@ -52,10 +46,9 @@ function Navbar() {
             <Plus />
             <span className="d-sm-block d-none">Add Product</span>
           </Link>
-          <span className="avatar-lg mr-2">
-            <span className="badge-primary"></span>
-            <img src={userImage} alt="user avatar" />
-          </span>
+          <Link to="/profile" className="mr-3">
+            <Avatar color="base" size="fsz-4" />
+          </Link>
         </div>
       </header>
       <nav className={`nav ${toggleMenu && "d-none hide"}`}>
@@ -81,15 +74,9 @@ function Navbar() {
             <span>analytics</span>
             <Badge />
           </NavLink>
-          <NavLink className="nav-link" to="/feature">
-            <Wallet />
-            <span>wallet</span>
-            <Badge />
-          </NavLink>
-          <NavLink className="nav-link" to="/feature">
+          <NavLink className="nav-link" to="/profile">
             <Settings />
             <span>settings</span>
-            <Badge />
           </NavLink>
           <button onClick={() => logout()} className="nav-link btn-reset">
             <Exit />

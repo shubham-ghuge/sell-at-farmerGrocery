@@ -11,7 +11,7 @@ function Product() {
   }, []);
   return (
     <div className="p-5">
-      <h2 className="mb-5">Your Products</h2>
+      <h2 className="mb-5 fsz-3">Your Products</h2>
       <div className="flex-layout">
         {loading ? (
           <div className="d-flex ai-center jc-center h-20">

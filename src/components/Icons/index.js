@@ -19,3 +19,4 @@ export * from './Exit';
 export * from './MenuIcon';
 export * from './Delete';
 export * from './Pen';
+export * from './Avatar';

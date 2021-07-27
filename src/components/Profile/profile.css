@@ -1,0 +1,40 @@
+.divider {
+  margin: 1rem 0 3rem;
+  border: 1px solid var(--c-grey);
+}
+.profile-container {
+  margin: var(--p-2);
+  background-color: #fff;
+  padding: var(--p-4);
+  border-radius: var(--br-2);
+  width: auto;
+}
+.profile-layout {
+  margin-top: 2rem;
+}
+.profile-layout label {
+  margin-bottom: var(--p-2);
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.profile-layout label span {
+  margin-bottom: var(--p-2);
+}
+.profile-layout .d-flex {
+  flex-direction: column;
+}
+
+@media all and (min-width: 600px) {
+  .profile-container {
+    width: 90%;
+    padding: var(--p-4);
+    margin: var(--p-5);
+  }
+  .profile-layout .d-flex {
+    flex-direction: row;
+  }
+  .profile-layout .d-flex label:first-child {
+    margin-right: 1rem;
+  }
+}
