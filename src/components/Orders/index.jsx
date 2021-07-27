@@ -8,30 +8,30 @@ function Orders() {
   const { orders } = useDataContext();
   console.log(orders);
   return (
-    <div className="order-container">
+    <div className="orders">
       {orders.length !== 0 ? (
         <>
           <h2 className="mb-5">Orders</h2>
-          <div className="orders">
+          <div className="order-container">
             <div className="headings c-white">
               <h3 className="sub-title">Order Id</h3>
-              <h3 className="sub-title">Customer Email</h3>
+              <h3 className="sub-title">Payment Status</h3>
               <h3 className="sub-title">Order Details</h3>
               <h3 className="sub-title">Delivery Status</h3>
             </div>
-            <div className="my-2 flex-column">
+            <>
               {React.Children.toArray(
                 orders &&
                   orders.map((i) => (
-                    <>
+                    <div className="my-2">
                       <p>{i._id}</p>
-                      <p>{i.customerId.name}</p>
+                      <p>{i.paymentStatus ? "done" : "pending"}</p>
                       <Link to={`/orders/${i._id}`}>View Details</Link>
-                      <button className="btn-primary">pending</button>
-                    </>
+                      <p>pending</p>
+                    </div>
                   ))
               )}
-            </div>
+            </>
           </div>
         </>
       ) : (

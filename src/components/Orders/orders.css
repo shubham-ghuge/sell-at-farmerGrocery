@@ -3,13 +3,14 @@
   border-radius: var(--br-3);
   background-color: #fff;
   border: 2px solid var(--c-grey);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .order-container {
   padding: var(--p-5) 0;
 }
-.orders > div {
-  display: flex;
-  justify-content: space-evenly;
+.order-container > div {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
 .orders .headings {
   border-radius: var(--br-3) var(--br-3) 0 0;
@@ -19,10 +20,14 @@
 .orders .sub-title {
   font-size: 0.9rem;
 }
-.orders div * {
+.order-container div * {
+  text-align: center;
   overflow: hidden;
   padding: var(--p-2);
-  width: 20%;
+}
+.order-products {
+  margin: 1rem 0 !important;
+  display: flex!important;
 }
 @media all and (min-width: 600px) {
   .order-container {
