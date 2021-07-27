@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router";
 import { useDataContext } from "../../../contexts/useDataContext";
 
@@ -14,6 +14,7 @@ function SubTitle({ label, text }) {
 function OrderDetails() {
   const { orderId } = useParams();
   const { orders, products } = useDataContext();
+
   const data = orders.filter((i) => i._id === orderId);
   function getProductDetails(productId) {
     const product = products.find((i) => i._id === productId);
@@ -53,10 +54,14 @@ function OrderDetails() {
                   {React.Children.toArray(
                     products.map((j) => {
                       const { name, price, imgUrl } = getProductDetails(
-                        j.productId
+                        j.productId,
+                        j.quantity
                       );
                       return (
-                        <div className="list-container w-sm-30" style={{margin:"1rem 0"}}>
+                        <div
+                          className="list-container w-sm-30"
+                          style={{ margin: "1rem 0" }}
+                        >
                           <div className="list-item">
                             <div className="d-flex">
                               <img
@@ -70,6 +75,10 @@ function OrderDetails() {
                                 <SubTitle
                                   label="order quantity"
                                   text={j.quantity}
+                                />
+                                <SubTitle
+                                  label="amount"
+                                  text={price * j.quantity}
                                 />
                               </div>
                             </div>
