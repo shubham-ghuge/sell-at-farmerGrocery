@@ -6,11 +6,12 @@ import { Correct, Apple, Shop, Loader, Avatar, Wallet } from "../Icons";
 import "./dashboard.css";
 import { Card } from "../Cards";
 import { Jumbotron } from "../Jumbotron";
+import { useProfileContext } from "../../contexts/useProfileContext";
 
 function Dashboard() {
   const { userDetails } = useAuthContext();
   const { loading, products, getProductsData, totalOrders } = useDataContext();
-
+  const { walletBalence } = useProfileContext();
   useEffect(() => {
     getProductsData();
   }, []);
@@ -51,7 +52,7 @@ function Dashboard() {
               </div>
             </div>
             <Link className="c-primary" to="/products">
-              View All
+              View All Products
             </Link>
           </div>
           <div className="text-card flex-column w-sm-20">
@@ -63,7 +64,7 @@ function Dashboard() {
               </div>
             </div>
             <Link className="c-primary" to="/orders">
-              View All
+              View All Orders
             </Link>
           </div>
           <div className="text-card flex-column w-sm-20">
@@ -73,7 +74,7 @@ function Dashboard() {
                 <h3 className="card-header">Wallet Balence</h3>
                 <p className="fw-500">
                   <span className="fsz-2 mr-2">₹</span>
-                  {totalOrders}.00
+                  {walletBalence}.00
                 </p>
               </div>
             </div>

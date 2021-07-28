@@ -16,9 +16,10 @@ function OrderDetails() {
   const { orders, products } = useDataContext();
 
   const data = orders.filter((i) => i._id === orderId);
+
   function getProductDetails(productId) {
     const product = products.find((i) => i._id === productId);
-    return product;
+    return product || {};
   }
   return (
     <div className="orders m-5 p-4 shadow bgc-base-100">
@@ -58,32 +59,37 @@ function OrderDetails() {
                         j.quantity
                       );
                       return (
-                        <div
-                          className="list-container w-sm-30"
-                          style={{ margin: "1rem 0" }}
-                        >
-                          <div className="list-item">
-                            <div className="d-flex">
-                              <img
-                                src={imgUrl}
-                                className="h-20 bdrs-2"
-                                alt="product"
-                              />
-                              <div className=" m-2">
-                                <SubTitle label="product name" text={name} />
-                                <SubTitle label="product price" text={price} />
-                                <SubTitle
-                                  label="order quantity"
-                                  text={j.quantity}
+                        name && (
+                          <div
+                            className="list-container w-sm-30"
+                            style={{ margin: "1rem 0" }}
+                          >
+                            <div className="list-item">
+                              <div className="d-flex">
+                                <img
+                                  src={imgUrl}
+                                  className="h-20 bdrs-2"
+                                  alt="product"
                                 />
-                                <SubTitle
-                                  label="amount"
-                                  text={price * j.quantity}
-                                />
+                                <div className=" m-2">
+                                  <SubTitle label="product name" text={name} />
+                                  <SubTitle
+                                    label="product price"
+                                    text={price}
+                                  />
+                                  <SubTitle
+                                    label="order quantity"
+                                    text={j.quantity}
+                                  />
+                                  <SubTitle
+                                    label="amount"
+                                    text={price * j.quantity}
+                                  />
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
+                        )
                       );
                     })
                   )}

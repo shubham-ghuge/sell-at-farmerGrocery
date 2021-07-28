@@ -6,6 +6,7 @@ import "./orders.css";
 
 function Orders() {
   const { orders } = useDataContext();
+  console.log(orders);
   return (
     <>
       <h2 className="ml-4 mt-5 fsz-3">Orders Received</h2>

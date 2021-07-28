@@ -2,8 +2,19 @@
   margin: 1rem 0 3rem;
   border: 1px solid var(--c-grey);
 }
+.icon-title {
+  background-color: var(--c-primary-200);
+  color: #fff;
+  height: 50px;
+  width: 50px;
+  box-sizing: border-box;
+  border-radius: var(--br-7);
+  display: inline-grid;
+  place-content: center;
+}
 .profile-container {
   margin: var(--p-2);
+  box-sizing: border-box;
   background-color: #fff;
   padding: var(--p-4);
   border-radius: var(--br-2);
@@ -24,12 +35,20 @@
 .profile-layout .d-flex {
   flex-direction: column;
 }
-
+.mt-sm-4 {
+  margin-top: var(--p-4);
+}
 @media all and (min-width: 600px) {
+  .mt-sm-4 {
+    margin-top: 0;
+  }
+  .mr-lg-4 {
+    margin-right: var(--p-4);
+  }
   .profile-container {
     width: 90%;
-    padding: var(--p-4);
-    margin: var(--p-5);
+    padding: 3rem;
+    margin: var(--p-5) auto;
   }
   .profile-layout .d-flex {
     flex-direction: row;

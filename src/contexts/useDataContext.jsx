@@ -13,6 +13,7 @@ const DataContext = createContext();
 
 export default function DataContextProvider({ children }) {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [walletBalence, setWalletBalence] = useState(0);
   const [state, dispatch] = useReducer(dataReducer, initialState);
   const { token } = useAuthContext();
   useEffect(() => {
@@ -80,9 +81,11 @@ export default function DataContextProvider({ children }) {
   }
 
   useEffect(() => {
-    token && getProductsData();
-    token && getOrdersData();
-    token && state.orders.length === 0 && getCategories();
+    if (token) {
+      getProductsData();
+      getOrdersData();
+      getCategories();
+    }
   }, []);
   return (
     <DataContext.Provider
@@ -97,6 +100,8 @@ export default function DataContextProvider({ children }) {
         dispatch,
         toggleMenu,
         setToggleMenu,
+        walletBalence,
+        setWalletBalence,
       }}
     >
       {children}
