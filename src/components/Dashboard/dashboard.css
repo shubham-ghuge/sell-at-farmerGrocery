@@ -12,6 +12,9 @@
   padding-top: 1rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
+.no-shadow {
+  box-shadow: none;
+}
 .dashboard .user-info h2 {
   font-size: 1rem;
 }
@@ -21,24 +24,24 @@
 .dashboard .overview {
   padding: var(--p-4);
 }
-.overview .text-card {
+.text-card {
   background-color: #fff;
   margin-bottom: var(--p-5);
 }
-.overview .text-card .icon {
+.text-card .icon {
   color: var(--c-secondary-200);
   padding: var(--p-2);
 }
-.text-card .d-flex{
+.text-card .d-flex {
   height: 70px;
 }
-.overview .text-card .card-header {
+.text-card .card-header {
   font-weight: 600;
   font-size: 1rem;
   margin: 0 0 0.5rem;
   color: var(--c-secondary-200);
 }
-.overview .text-card a {
+.text-card a {
   padding-top: var(--p-2);
   border-top: 3px solid var(--c-grey);
 }

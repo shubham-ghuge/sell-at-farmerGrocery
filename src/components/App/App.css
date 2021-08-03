@@ -9,9 +9,14 @@ body {
 }
 .App {
   font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 * {
   font-family: "Inter";
+}
+footer {
+  box-sizing: border-box;
 }
 /* utility classes */
 .main {

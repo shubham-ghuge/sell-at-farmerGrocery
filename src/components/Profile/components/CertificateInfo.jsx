@@ -1,10 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Jumbotron } from "../../Jumbotron";
-import { Chart } from "../../Icons";
+import { Chart, Loader } from "../../Icons";
 import { useProfileContext } from "../../../contexts/useProfileContext";
+import axios from "axios";
 
 function CertificateInfo() {
-  const { certificates } = useProfileContext();
+  const { certificates, setCertificates } = useProfileContext();
+  const [userInput, setUserInput] = useState("");
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  async function addToCertificates() {
+    if (
+      /https:\/\/realfarmer\-quiz.netlify.app\/certificate\/+/.test(userInput)
+    ) {
+      setLoading(true);
+      setCertificates((curr) => [...curr, userInput]);
+      try {
+        await axios.post(
+          "https://farmers-grocery-v2.herokuapp.com/farmers/profile",
+          { certificates: certificates }
+        );
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+        setError(false);
+        setUserInput("");
+      }
+    } else {
+      userInput !== "" && setError(true);
+    }
+  }
   return (
     <>
       <h2 className="fsz-3 mt-5" id="#wallet">
@@ -49,10 +75,23 @@ function CertificateInfo() {
             type="url"
             placeholder="https://realfarmer-quiz.netlify.app/certificate/your_email_id"
             className="input w-sm-40 mr-lg-4"
+            value={userInput}
+            onChange={(e) => setUserInput(e.target.value)}
           />
         </label>
-        <button className="btn-primary mt-sm-4">Submit</button>
+        <button
+          className="btn-primary mt-sm-4"
+          onClick={addToCertificates}
+          disabled={loading}
+        >
+          {loading ? <Loader /> : "Submit"}
+        </button>
       </div>
+      {error && (
+        <span className="c-danger" style={{ fontSize: ".9rem" }}>
+          entered url is not correct
+        </span>
+      )}
     </>
   );
 }

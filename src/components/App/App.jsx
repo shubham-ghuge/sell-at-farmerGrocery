@@ -16,7 +16,7 @@ import { Profile } from "../Profile";
 function App() {
   const { toggleMenu } = useDataContext();
   return (
-    <div className={`App ${toggleMenu && "reset-width"}`}>
+    <div className={`App${toggleMenu ? " reset-width" : ""}`}>
       <Routes>
         <Route path="" element={<Auth />}>
           <Route path="/" element={<Login />} />

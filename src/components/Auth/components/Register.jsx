@@ -39,6 +39,12 @@ function Register() {
         if (data.success) {
           setSuccessMessage(true);
           setMessage(data.message);
+          setInputDetails({
+            name: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+          });
         } else {
           setMessage(data.message);
         }
@@ -54,11 +60,7 @@ function Register() {
   return (
     <>
       {showAlert && (
-        <Alert
-          message={message}
-          onClose={() => setShowAlert(false)}
-          color={showSuccessMessage ? "success" : "danger"}
-        />
+        <Alert message={message} onClose={() => setShowAlert(false)} />
       )}
       <Navbar />
       <div className="flex-column form jc-center ai-center">

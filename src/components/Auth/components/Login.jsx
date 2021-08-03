@@ -15,8 +15,10 @@ function Login() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    userDetails && navigate("/dashboard");
-  }, []);
+    if (userDetails) {
+      return navigate("/dashboard", { replace: true });
+    }
+  }, [userDetails]);
 
   async function userLogin(event) {
     event.preventDefault();
@@ -84,7 +86,7 @@ function Login() {
             onClick={() => {
               setInputData((curr) => ({
                 email: "shubhamghuge@gmail.com",
-                password: "user@123",
+                password: "aaaaaa",
               }));
             }}
           >

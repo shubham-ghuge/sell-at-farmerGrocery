@@ -86,12 +86,13 @@ export default function DataContextProvider({ children }) {
       getOrdersData();
       getCategories();
     }
-  }, []);
+  }, [token]);
   return (
     <DataContext.Provider
       value={{
         loading: state.loading,
         products: state.products,
+        totalProducts: state.products.length,
         getProductsData,
         orders: state.orders,
         totalOrders: state.orders.length,

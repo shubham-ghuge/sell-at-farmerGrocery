@@ -20,3 +20,5 @@ export * from './MenuIcon';
 export * from './Delete';
 export * from './Pen';
 export * from './Avatar';
+export * from './Money';
+export * from './Stats';

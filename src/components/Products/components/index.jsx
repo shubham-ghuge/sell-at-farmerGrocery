@@ -19,7 +19,7 @@ function AddProduct() {
     imgUrl: "",
   });
   useEffect(() => {
-    if (productId !== undefined) {
+    if (productId !== undefined && products.length !== 0) {
       const [{ name, description, categoryId, price, discount, imgUrl }] =
         products.filter((i) => i._id === productId);
       setProduct((curr) => ({
@@ -32,7 +32,7 @@ function AddProduct() {
         imgUrl,
       }));
     }
-  }, []);
+  }, [products]);
   async function addProductsOnServer(event) {
     event.preventDefault();
     try {
@@ -88,7 +88,7 @@ function AddProduct() {
         <label>product description</label>
         <textarea
           className="input"
-          style={{height:"100px"}}
+          style={{ height: "100px" }}
           type="text"
           value={product.description}
           onChange={(e) =>
