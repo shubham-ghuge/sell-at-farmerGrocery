@@ -23,24 +23,26 @@ function Dashboard() {
         <h2 className="sub-title mb-4 px-4">Recently added products</h2>
         {loading ? (
           <div className="d-flex ai-center jc-center h-20">
-            <h2 className="sub-title">loading data</h2>
+            <h2 className="sub-title">Fetching Products</h2>
             <Loader />
           </div>
-        ) : products.length !== 0 ? (
-          <div className="flex-layout px-4">
-            {products.map(
-              (i, idx) => idx <= 3 && <Card product={i} key={i._id} />
-            )}
-            {products && products.length > 1 && (
+        ) : !loading && products.length !== 0 ? (
+          <>
+            <div className="flex-layout px-4">
+              {products.map(
+                (i, idx) => idx <= 3 && <Card product={i} key={i._id} />
+              )}
+            </div>
+            {products && products.length > 4 && (
               <Link
                 to="/products"
-                className="mb-5"
+                className="ml-5 mb-5"
                 style={{ alignSelf: "flex-end" }}
               >
                 view more
               </Link>
             )}
-          </div>
+          </>
         ) : (
           <Jumbotron link="/products/add" />
         )}

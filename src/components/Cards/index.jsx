@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDataContext } from "../../contexts/useDataContext";
 import { Delete, Pen } from "../Icons";
@@ -11,9 +11,11 @@ function Card({
   const { deleteProduct } = useDataContext();
   const [showModal, setShowModal] = useState(false);
   const [userResponse, setUserResponse] = useState(false);
-  if (userResponse) {
-    deleteProduct(_id);
-  }
+  useEffect(() => {
+    if (userResponse) {
+      deleteProduct(_id);
+    }
+  }, [userResponse]);
   return (
     <>
       <figure className="wishlist-card mb-5">

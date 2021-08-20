@@ -90,7 +90,7 @@ function Login() {
               }));
             }}
           >
-            Demo login credentials
+            Demo login
           </button>
         </form>
         <p>

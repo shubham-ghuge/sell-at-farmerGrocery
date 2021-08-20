@@ -73,7 +73,7 @@ export default function DataContextProvider({ children }) {
       );
       if (data.success) {
         console.log(data.product._id);
-        return dispatch({ type: "DELETE_PRODUCT", payload: data.product._Id });
+        return dispatch({ type: "DELETE_PRODUCT", payload: data.product._id });
       }
     } catch (error) {
       console.log(error);

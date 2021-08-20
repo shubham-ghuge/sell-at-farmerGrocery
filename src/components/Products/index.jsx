@@ -12,13 +12,14 @@ function Product() {
   return (
     <div className="p-5">
       <h2 className="mb-5 fsz-3">Your Products</h2>
+      {loading && (
+        <div className="d-flex ai-center jc-center mb-5">
+          <h2 className="sub-title">Fetching Products</h2>
+          <Loader />
+        </div>
+      )}
       <div className="flex-layout">
-        {loading ? (
-          <div className="d-flex ai-center jc-center h-20">
-            <h2 className="sub-title">loading data</h2>
-            <Loader />
-          </div>
-        ) : products.length !== 0 ? (
+        {products.length !== 0 ? (
           products.map((i) => <Card product={i} key={i._id} />)
         ) : (
           <Jumbotron link="/products/add" />

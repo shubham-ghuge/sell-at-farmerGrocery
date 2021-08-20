@@ -26,6 +26,11 @@
 }
 .title {
   font-size: var(--fsz-2);
+  flex-wrap: wrap;
+}
+.title span {
+  margin-top: var(--p-2);
+  padding: 0.5em;
 }
 .form {
   background-color: #fff;
@@ -37,13 +42,12 @@
 }
 @media screen and (min-width: 600px) {
   .title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--fsz-3);
+    font-size: var(--fsz-4);
   }
-  .title h3 {
-    margin: var(--p-7) var(--p-5) 0;
+  .title span {
+    margin-left: var(--p-4);
+    margin-top: var(--p-0);
+    padding: 0.3em 0.5em;
   }
   .form {
     padding: 1.6rem;

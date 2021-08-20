@@ -26,7 +26,7 @@ export default function ProfileContextProvide({ children }) {
 
   useEffect(() => {
     token && getUserData();
-  }, []);
+  }, [token]);
 
   return (
     <profileContext.Provider

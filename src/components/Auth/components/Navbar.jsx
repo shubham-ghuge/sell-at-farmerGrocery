@@ -19,14 +19,10 @@ function Navbar() {
           </Link>
         </div>
       </header>
-      <div className="text-center title">
-        <h2 className="mt-7">
-          Begin your <span>selling journey</span> on
-        </h2>
-        <h3 className="bgc-success-100 d-ib mt-3 mb-5 p-2 bdrs-1">
-          Farmers Grocery
-        </h3>
-      </div>
+      <h2 className="d-flex mt-7 jc-center ai-center title">
+        Begin your selling journey on
+        <span className="bgc-success-100 bdrs-1">Farmers Grocery</span>
+      </h2>
     </>
   );
 }

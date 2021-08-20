@@ -82,7 +82,7 @@ function AddProduct() {
           onChange={(e) =>
             setProduct((curr) => ({ ...curr, name: e.target.value }))
           }
-          placeholder="enterproduct name"
+          placeholder="enter product name"
           required
         />
         <label>product description</label>

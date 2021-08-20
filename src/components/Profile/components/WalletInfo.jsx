@@ -3,7 +3,7 @@ import { Wallet } from "../../Icons";
 import { useProfileContext } from "../../../contexts/useProfileContext";
 
 function WalletInfo() {
-  const { walletBalence } = useProfileContext();
+  const { walletBalence = 100 } = useProfileContext();
   return (
     <>
       <h2 className="fsz-3 mt-5" id="#wallet">
