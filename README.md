@@ -1,6 +1,6 @@
 # sell at Farmers Grocery
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0b5b47a7-5620-443b-8546-4696fa57ebcd/deploy-status)](https://app.netlify.com/sites/farmers-grocery/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f7e914b7-51c8-475a-ad98-3e1da64f1d05/deploy-status)](https://app.netlify.com/sites/sellatfarmersgrocery/deploys)
 
 ## About This Project
 
