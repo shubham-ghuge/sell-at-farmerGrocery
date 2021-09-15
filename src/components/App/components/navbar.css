@@ -1,0 +1,95 @@
+.header {
+  position: fixed;
+  top: 0%;
+  right: 0%;
+  height: 60px;
+  width: calc(100vw - var(--nav-width));
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  z-index: var(--z-3);
+  justify-content: space-between;
+  transition: width 0.5s;
+}
+.fw-600 {
+  font-weight: 600 !important;
+}
+.header .btn-primary {
+  padding: 0;
+  border-radius: var(--br-2);
+}
+.header .icon {
+  margin: var(--p-2);
+}
+.logo {
+  margin: var(--p-2) 0 var(--p-2) var(--p-3);
+  height: 50px;
+}
+.header .avatar-lg {
+  height: 40px;
+  width: 40px;
+}
+.reset-width {
+  --nav-width: 0px;
+}
+.nav {
+  z-index: var(--z-3);
+  position: fixed;
+  width: calc(var(--nav-width));
+  background-color: #027581;
+  height: 100vh;
+  transition: all 0.3s;
+}
+.nav .hide {
+  transform: scaleX(0);
+}
+.nav .nav-link span {
+  margin-left: var(--p-3);
+  text-transform: capitalize;
+  font-weight: 500;
+  display: none;
+}
+.nav .nav-link:is(:hover) {
+  text-decoration: none;
+  color: #fff;
+}
+.nav .icon {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+.nav .nav-link {
+  border-radius: var(--br-2);
+  padding: var(--p-3) 0;
+  width: 70%;
+  text-align: center;
+  color: #d5f5f6;
+}
+.nav .active {
+  color: #fff;
+  background-color: #016673;
+}
+@media all and (min-width: 600px) {
+  .nav button {
+    width: 100%;
+    font-family: "Inter";
+    margin-right: var(--p-5);
+  }
+  .nav .nav-link {
+    display: flex;
+    padding: var(--p-3);
+    text-align: left;
+    align-items: center;
+    width: 80%;
+  }
+  .header .avatar-lg {
+    height: 50px;
+    width: 50px;
+  }
+  .header .btn-primary {
+    padding: 0 var(--p-4) 0 var(--p-2);
+    border-radius: var(--br-2);
+  }
+  .nav .nav-link span {
+    display: block;
+  }
+}

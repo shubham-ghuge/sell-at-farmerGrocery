@@ -1,0 +1,38 @@
+.orders {
+  overflow: auto;
+  border-radius: var(--br-3);
+  padding: var(--p-2);
+}
+.order-container {
+  background-color: #fff;
+  border: 2px solid var(--c-grey);
+}
+.order-container > div {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.orders .headings {
+  border-radius: var(--br-3) var(--br-3) 0 0;
+  padding: var(--p-3) 0;
+  background-color: var(--c-secondary-200);
+}
+.orders .sub-title {
+  font-size: 0.9rem;
+}
+.order-container div * {
+  text-align: center;
+  overflow: hidden;
+  padding: var(--p-2);
+}
+.order-products {
+  margin: 1rem 0 !important;
+  display: flex !important;
+}
+@media all and (min-width: 600px) {
+  .orders {
+    padding: var(--p-6);
+  }
+  .orders .sub-title {
+    font-size: var(--fsz-1);
+  }
+}

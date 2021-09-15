@@ -1,0 +1,12 @@
+.wishlist-card {
+  border: 2px solid var(--c-grey);
+  padding-bottom: var(--p-4);
+}
+.wishlist-card img {
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+}
+.mb-5 {
+  margin-bottom: var(--p-5) !important;
+}

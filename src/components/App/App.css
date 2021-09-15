@@ -1,0 +1,117 @@
+:root {
+  --c-primary-200: #016673;
+  --c-secondary-200: #97a6ba;
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #f9fafb;
+  --nav-width: 80px;
+}
+.App {
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+* {
+  font-family: "Inter";
+}
+footer {
+  box-sizing: border-box;
+}
+/* utility classes */
+.main {
+  display: flex;
+}
+.jumbotron {
+  width: 90%;
+  margin: 1rem auto 0 !important;
+}
+.icon {
+  height: 1.5rem !important;
+}
+.container {
+  box-sizing: border-box;
+  width: calc(100vw - var(--nav-width));
+  margin-top: 60px;
+  margin-left: var(--nav-width);
+}
+.sub-title {
+  font-size: var(--fsz-1);
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.c-white {
+  color: #fff;
+}
+.text-sm {
+  font-size: 0.8rem;
+}
+.icon-input {
+  width: 19.8rem;
+}
+.shadow {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.input {
+  font-family: "Inter";
+  border: 2px solid rgb(202, 202, 202);
+  padding: var(--p-2);
+  height: 40px;
+  border-radius: 0.3rem;
+  box-sizing: border-box;
+}
+.input:focus {
+  outline: 0;
+  border-color: #0077ff;
+}
+.icon {
+  height: 20px;
+}
+.btn-reset {
+  background-color: transparent;
+  border: 0;
+}
+.form-margin {
+  margin: 1rem auto 0 !important;
+}
+.form label {
+  text-transform: capitalize;
+  margin: var(--p-2) 0;
+}
+.loader {
+  display: flex;
+}
+.loader > span {
+  display: block;
+  height: 6px;
+  width: 6px;
+  margin: 0.3rem 0 0 0.2rem;
+  background-color: currentColor;
+  border-radius: 50%;
+}
+.loader span:nth-child(3) {
+  margin-right: 0.3rem;
+  margin-left: 0.2rem;
+  animation: blink 1s ease-in-out 0.66s infinite;
+}
+.loader span:nth-child(2) {
+  animation: blink 1s ease-in-out 0.33s infinite;
+}
+.loader span:nth-child(1) {
+  animation: blink 1s ease-in-out infinite;
+}
+@keyframes blink {
+  50% {
+    background-color: var(--loader-main);
+    transform: scale(1.2);
+  }
+}
+
+@media all and (min-width: 600px) {
+  body {
+    --nav-width: 18vw;
+  }
+  .jumbotron {
+    width: 60vw;
+  }
+}

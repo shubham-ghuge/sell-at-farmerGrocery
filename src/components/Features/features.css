@@ -1,0 +1,60 @@
+.feature {
+  padding: var(--p-5) var(--p-3);
+  pointer-events: none;
+}
+.table div {
+  margin-bottom: var(--p-5);
+  align-items: center;
+  justify-content: space-between;
+}
+.feature .wrapper {
+  overflow: scroll;
+}
+.feature .text-card {
+  width: 100%;
+}
+.table {
+  border: 1px solid #ccc;
+  border-radius: var(--br-2);
+  box-sizing: border-box;
+  width: 400px;
+  padding: var(--p-2);
+}
+.table .heading {
+  margin: var(--p-4) 0;
+}
+.table .details {
+  margin-bottom: var(--p-2);
+}
+.heading h4:first-child,
+.details p:first-child {
+  width: 40%;
+}
+.table h4,
+.table p {
+  width: 20%;
+  margin: 0 var(--p-2);
+}
+@media all and (min-width: 768px) {
+  .feature {
+    padding: var(--p-7);
+  }
+  .feature .wrapper {
+    overflow: hidden;
+  }
+  .heading h4:first-child,
+  .details p:first-child {
+    width: 40%;
+  }
+  .table {
+    padding: var(--p-7);
+  }
+  .table h4,
+  .table p {
+    width: 100px;
+    margin: 0;
+  }
+  .table {
+    width: 100%;
+  }
+}
